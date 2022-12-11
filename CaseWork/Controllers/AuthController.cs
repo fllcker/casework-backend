@@ -38,5 +38,19 @@ namespace CaseWork.Controllers
 
             return await _authService.Create(user);
         }
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<ActionResult<string>> Login([FromBody] UserLogin userLogin)
+        {
+            try
+            {
+                return await _authService.Login(userLogin);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

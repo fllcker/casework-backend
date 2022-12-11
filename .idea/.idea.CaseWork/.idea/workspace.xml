@@ -6,17 +6,12 @@
     <projectFile profileName="https">CaseWork/CaseWork.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CaseWork/Data/AppMappingProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CaseWork/Models/Dto/UserSignup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CaseWork/Services/AuthService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CaseWork/Services/IAuthService.cs" afterDir="false" />
+    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="+signup">
+      <change afterPath="$PROJECT_DIR$/CaseWork/Models/Dto/UserLogin.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/CaseWork.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/CaseWork.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Models/Company.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Models/Company.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Models/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/AuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/IAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/IAuthService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +94,8 @@
       <option name="presentableId" value="Default" />
       <updated>1670704611447</updated>
       <workItem from="1670704638304" duration="1058000" />
-      <workItem from="1670743234424" duration="2780000" />
+      <workItem from="1670743234424" duration="3189000" />
+      <workItem from="1670769070455" duration="2478000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670704652703</created>
@@ -115,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670705519936</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="+signup">
+      <created>1670746362009</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670746362009</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +141,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="init" />
     <MESSAGE value="+models" />
-    <option name="LAST_COMMIT_MESSAGE" value="+models" />
+    <MESSAGE value="+signup" />
+    <option name="LAST_COMMIT_MESSAGE" value="+signup" />
   </component>
 </project>
