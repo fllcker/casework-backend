@@ -2,6 +2,7 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using CaseWork.Data;
+using CaseWork.Models;
 using CaseWork.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -33,6 +34,7 @@ builder.Services.AddAuthentication(
 
 builder.Services.AddAutoMapper(typeof(AppMappingProfile));
 builder.Services.AddTransient<IAuthService, AuthService>();
+builder.Services.AddTransient<IUsersService, UsersService>();
 
 var app = builder.Build();
 

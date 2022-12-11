@@ -33,7 +33,7 @@ public class AuthService : IAuthService
         if (!BCrypt.Net.BCrypt.Verify(userLogin.Password, candidate.Password))
             throw new Exception("Wrong data!");
         
-        return GenerateToken(candidate);
+        return await GenerateToken(candidate);
     }
 
     public async Task<string> Create(User user)
@@ -42,15 +42,35 @@ public class AuthService : IAuthService
         _dbContext.Users.Add(user);
         await _dbContext.SaveChangesAsync();
 
-        return GenerateToken(user);
+        return await GenerateToken(user);
     }
 
-    private string GenerateToken(User user)
+    private async Task<List<Claim>> GetUserRoles(string email)
     {
+
+        var userRoles = await _dbContext.RoleRelations
+            .Include(v => v.User)
+            .Include(v => v.Role)
+            .Where(v => v.User.Email == email)
+            .Select(v => v.Role.Title)
+            .ToListAsync();
+
+        var list = userRoles.Select(v => new Claim(ClaimTypes.Role, v));
+        
+        return list.ToList();
+    }
+
+    private async Task<string> GenerateToken(User user)
+    {
+        var userRoles = await GetUserRoles(user.Email);
+
         List<Claim> claims = new List<Claim>
         {
             new Claim(ClaimTypes.Email, user.Email)
         };
+
+        claims = claims.Concat(userRoles).ToList();
+        
         var key = new SymmetricSecurityKey(
             System.Text.Encoding.UTF8.GetBytes(_configuration.GetSection("Config:Secret").Value!));
 
