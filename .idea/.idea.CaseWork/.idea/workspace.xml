@@ -6,14 +6,7 @@
     <projectFile profileName="https">CaseWork/CaseWork.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="+user roles">
-      <change afterPath="$PROJECT_DIR$/CaseWork/Models/Dto/UserProfileData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/AuthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Data/AppMappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Data/AppMappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Models/Dto/UserSignup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Models/Dto/UserSignup.cs" afterDir="false" />
-    </list>
+    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="+get profile data, get user roles" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +14,11 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Controllers/AuthController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Controllers/AuthController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Controllers/UsersController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Data/AppMappingProfile.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Data/AppMappingProfile.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Models/Dto/UserSignup.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -100,7 +97,7 @@
       <updated>1670704611447</updated>
       <workItem from="1670704638304" duration="1058000" />
       <workItem from="1670743234424" duration="3189000" />
-      <workItem from="1670769070455" duration="11054000" />
+      <workItem from="1670769070455" duration="11380000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670704652703</created>
@@ -137,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670779174509</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="+get profile data, get user roles">
+      <created>1670788977641</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670788977641</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +167,7 @@
     <MESSAGE value="+signup" />
     <MESSAGE value="+login" />
     <MESSAGE value="+user roles" />
-    <option name="LAST_COMMIT_MESSAGE" value="+user roles" />
+    <MESSAGE value="+get profile data, get user roles" />
+    <option name="LAST_COMMIT_MESSAGE" value="+get profile data, get user roles" />
   </component>
 </project>

@@ -24,10 +24,10 @@ namespace CaseWork.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
-        [Route("set/{userId}/{roleName}")]
-        public async Task<ActionResult<RoleRelation>> SetRole(int userId, string roleName)
+        [Route("set/{email}/{roleName}")]
+        public async Task<ActionResult<RoleRelation>> SetRole(string email, string roleName)
         {
-            var candidate = await _dbContext.Users.FirstOrDefaultAsync(v => v.Id == userId);
+            var candidate = await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == email);
             if (candidate == null) return BadRequest("User not found");
             Role? role = await _dbContext.Roles.FirstOrDefaultAsync(v => v.Title == roleName);
             if (role == null)
@@ -53,15 +53,15 @@ namespace CaseWork.Controllers
 
         [HttpGet]
         [Authorize(Roles = "Admin")]
-        [Route("remove/{userId}/{roleName}")]
-        public async Task<ActionResult> RemoveRole(int userId, string roleName)
+        [Route("remove/{email}/{roleName}")]
+        public async Task<ActionResult> RemoveRole(string email, string roleName)
         {
             try
             {
                 var roles = await _dbContext.RoleRelations
                     .Include(v => v.Role)
                     .Include(v => v.User)
-                    .Where(v => v.User.Id == userId)
+                    .Where(v => v.User.Email == email)
                     .Where(v => v.Role.Title == roleName)
                     .ToListAsync();
                 _dbContext.RemoveRange(roles);
