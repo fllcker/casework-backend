@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,11 +21,13 @@ namespace CaseWork.Controllers
     {
         private readonly CaseWorkContext _context;
         private readonly IUsersService _usersService;
+        private readonly IMapper _mapper;
 
-        public UsersController(CaseWorkContext context, IUsersService usersService)
+        public UsersController(CaseWorkContext context, IUsersService usersService, IMapper mapper)
         {
             _context = context;
             _usersService = usersService;
+            _mapper = mapper;
         }
 
         [HttpPost]
@@ -41,6 +45,17 @@ namespace CaseWork.Controllers
             {
                 return BadRequest(e.Message);
             }
+        }
+
+        [HttpGet]
+        [Route("profile")]
+        [Authorize]
+        public async Task<ActionResult<UserProfileData>> GetProfileData()
+        {
+            var email = User.FindFirstValue(ClaimTypes.Email);
+            var user = await _context.Users.FirstOrDefaultAsync(v => v.Email == email);
+            if (user == null) return BadRequest("User not found!");
+            return _mapper.Map<UserProfileData>(user);
         }
     }
 }

@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using CaseWork.Models.Dto;
 using CaseWork.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -51,6 +53,19 @@ namespace CaseWork.Controllers
             {
                 return BadRequest(e.Message);
             }
+        }
+
+        [Authorize]
+        [Route("check")]
+        [HttpGet]
+        public ActionResult Check()
+        {
+            var roles = User.Claims
+                .Where(v => v.Type == ClaimTypes.Role)
+                .Select(v => v.Value)
+                .ToArray();
+
+            return Ok(String.Join(", ", roles));
         }
     }
 }

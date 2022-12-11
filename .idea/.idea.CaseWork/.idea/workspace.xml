@@ -6,15 +6,13 @@
     <projectFile profileName="https">CaseWork/CaseWork.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="+login">
-      <change afterPath="$PROJECT_DIR$/CaseWork/Models/Dto/UserUpdate.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CaseWork/Services/IUsersService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CaseWork/Services/UsersService.cs" afterDir="false" />
+    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="+user roles">
+      <change afterPath="$PROJECT_DIR$/CaseWork/Models/Dto/UserProfileData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/AuthController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/UsersController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Data/AppMappingProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Data/AppMappingProfile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Services/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/AuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Models/Dto/UserSignup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Models/Dto/UserSignup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +21,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Controllers/AuthController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Data/AppMappingProfile.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -101,7 +100,7 @@
       <updated>1670704611447</updated>
       <workItem from="1670704638304" duration="1058000" />
       <workItem from="1670743234424" duration="3189000" />
-      <workItem from="1670769070455" duration="9011000" />
+      <workItem from="1670769070455" duration="11054000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670704652703</created>
@@ -131,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670772325567</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="+user roles">
+      <created>1670779174509</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670779174509</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +162,7 @@
     <MESSAGE value="+models" />
     <MESSAGE value="+signup" />
     <MESSAGE value="+login" />
-    <option name="LAST_COMMIT_MESSAGE" value="+login" />
+    <MESSAGE value="+user roles" />
+    <option name="LAST_COMMIT_MESSAGE" value="+user roles" />
   </component>
 </project>

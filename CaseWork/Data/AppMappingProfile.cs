@@ -10,5 +10,6 @@ public class AppMappingProfile : Profile
     {			
         CreateMap<UserSignup, User>();
         CreateMap<UserUpdate, User>();
+        CreateMap<User, UserProfileData>();
     }
 }

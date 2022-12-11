@@ -7,6 +7,7 @@ public class UserSignup
     [EmailAddress]
     [MaxLength(64)]
     public string Email { get; set; }
+    [MinLength(8)]
     public string Password { get; set; }
     
     [MaxLength(32)]
