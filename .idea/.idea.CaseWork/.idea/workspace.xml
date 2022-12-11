@@ -6,10 +6,17 @@
     <projectFile profileName="https">CaseWork/CaseWork.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/CaseWork/Models/Task.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CaseWork/Models/User.cs" afterDir="false" />
+    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CaseWork/Data/AppMappingProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CaseWork/Models/Dto/UserSignup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CaseWork/Services/AuthService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CaseWork/Services/IAuthService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/CaseWork.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/CaseWork.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Models/Company.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Models/Company.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,16 +34,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.CaseWork: IIS Express">
+}</component>
+  <component name="RunManager" selected=".NET Launch Settings Profile.CaseWork: https">
     <configuration name="CaseWork: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/CaseWork/CaseWork.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -91,7 +98,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670704611447</updated>
-      <workItem from="1670704638304" duration="508000" />
+      <workItem from="1670704638304" duration="1058000" />
+      <workItem from="1670743234424" duration="2780000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670704652703</created>
@@ -100,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670704652703</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="+models">
+      <created>1670705519936</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670705519936</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +137,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="+models" />
+    <option name="LAST_COMMIT_MESSAGE" value="+models" />
   </component>
 </project>
