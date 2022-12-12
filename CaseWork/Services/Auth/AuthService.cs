@@ -4,11 +4,10 @@ using AutoMapper;
 using CaseWork.Data;
 using CaseWork.Models;
 using CaseWork.Models.Dto;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
-namespace CaseWork.Services;
+namespace CaseWork.Services.Auth;
 
 public class AuthService : IAuthService
 {

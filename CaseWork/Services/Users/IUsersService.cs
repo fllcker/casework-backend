@@ -1,7 +1,7 @@
 ﻿using CaseWork.Models;
 using CaseWork.Models.Dto;
 
-namespace CaseWork.Services;
+namespace CaseWork.Services.Users;
 
 public interface IUsersService
 {

@@ -1,8 +1,7 @@
 ﻿using CaseWork.Models;
 using CaseWork.Models.Dto;
-using Microsoft.AspNetCore.Mvc;
 
-namespace CaseWork.Services;
+namespace CaseWork.Services.Auth;
 
 public interface IAuthService
 {

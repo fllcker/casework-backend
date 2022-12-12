@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using CaseWork.Models.Dto;
 using CaseWork.Services;
+using CaseWork.Services.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

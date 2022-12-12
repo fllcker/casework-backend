@@ -4,7 +4,7 @@ using CaseWork.Models;
 using CaseWork.Models.Dto;
 using Microsoft.EntityFrameworkCore;
 
-namespace CaseWork.Services;
+namespace CaseWork.Services.Users;
 
 public class UsersService : IUsersService
 {

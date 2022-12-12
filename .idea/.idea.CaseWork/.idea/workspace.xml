@@ -6,19 +6,26 @@
     <projectFile profileName="https">CaseWork/CaseWork.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="+get profile data, get user roles" />
+    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CaseWork/Models/Dto/GetBy.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CaseWork/Services/Tasks/ITasksService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/AuthController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/UsersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/WeatherForecastController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Auth/AuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/IAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Auth/IAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/IUsersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Users/IUsersService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/UsersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Users/UsersService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/WeatherForecast.cs" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Controllers/AuthController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Controllers/AuthController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Controllers/UsersController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Data/AppMappingProfile.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Data/AppMappingProfile.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Models/Dto/UserSignup.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -97,7 +104,8 @@
       <updated>1670704611447</updated>
       <workItem from="1670704638304" duration="1058000" />
       <workItem from="1670743234424" duration="3189000" />
-      <workItem from="1670769070455" duration="11380000" />
+      <workItem from="1670769070455" duration="13114000" />
+      <workItem from="1670851051351" duration="3528000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670704652703</created>
@@ -141,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670788977641</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="role relations controller setrole by id (changed to)=&gt; set role by email.">
+      <created>1670789912680</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670789912680</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +183,7 @@
     <MESSAGE value="+login" />
     <MESSAGE value="+user roles" />
     <MESSAGE value="+get profile data, get user roles" />
-    <option name="LAST_COMMIT_MESSAGE" value="+get profile data, get user roles" />
+    <MESSAGE value="role relations controller setrole by id (changed to)=&gt; set role by email." />
+    <option name="LAST_COMMIT_MESSAGE" value="role relations controller setrole by id (changed to)=&gt; set role by email." />
   </component>
 </project>

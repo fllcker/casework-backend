@@ -11,6 +11,7 @@ using CaseWork.Data;
 using CaseWork.Models;
 using CaseWork.Models.Dto;
 using CaseWork.Services;
+using CaseWork.Services.Users;
 using Microsoft.AspNetCore.Authorization;
 
 namespace CaseWork.Controllers
