@@ -5,6 +5,7 @@ using CaseWork.Data;
 using CaseWork.Models;
 using CaseWork.Services;
 using CaseWork.Services.Auth;
+using CaseWork.Services.Invites;
 using CaseWork.Services.Tasks;
 using CaseWork.Services.Users;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -39,6 +40,7 @@ builder.Services.AddAutoMapper(typeof(AppMappingProfile));
 builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddTransient<IUsersService, UsersService>();
 builder.Services.AddTransient<ITasksService, TasksService>();
+builder.Services.AddTransient<IInvitesService, InvitesService>();
 
 var app = builder.Build();
 

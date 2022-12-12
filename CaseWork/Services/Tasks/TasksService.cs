@@ -63,4 +63,11 @@ public class TasksService : ITasksService
         await _dbContext.SaveChangesAsync();
         return task;
     }
+
+    public async Task<Models.Task> Create(Models.Task task)
+    {
+        _dbContext.Tasks.Add(task);
+        await _dbContext.SaveChangesAsync();
+        return task;
+    }
 }

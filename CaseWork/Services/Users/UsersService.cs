@@ -26,4 +26,7 @@ public class UsersService : IUsersService
         await _dbContext.SaveChangesAsync();
         return await _dbContext.Users.FirstAsync(v => v.Email == userUpdate.Email);
     }
+
+    public async Task<User?> GetByEmail(string email)
+        => await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == email);
 }

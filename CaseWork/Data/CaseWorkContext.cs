@@ -19,5 +19,6 @@ namespace CaseWork.Data
         public DbSet<CaseWork.Models.Company> Companies { get; set; } = default!;
         public DbSet<CaseWork.Models.Role> Roles { get; set; } = default!;
         public DbSet<CaseWork.Models.RoleRelation> RoleRelations { get; set; } = default!;
+        public DbSet<CaseWork.Models.Invite> Invites { get; set; } = default!;
     }
 }

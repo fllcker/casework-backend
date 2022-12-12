@@ -18,6 +18,6 @@ public class Task
     public User Employer { get; set; }
     public User Executor { get; set; }
     public Task? SubTask { get; set; }
-
-    public DateTimeKind CreatedAt { get; set; } = DateTime.Now.Kind;
+    
+    public long CreatedAt { get; set; } = ((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
 }
