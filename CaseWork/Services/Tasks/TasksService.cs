@@ -1,5 +1,8 @@
-﻿using CaseWork.Data;
+﻿using AutoMapper;
+using CaseWork.Data;
+using CaseWork.Models;
 using CaseWork.Models.Dto;
+using CaseWork.Services.Invites;
 using Microsoft.EntityFrameworkCore;
 
 namespace CaseWork.Services.Tasks;
@@ -7,12 +10,20 @@ namespace CaseWork.Services.Tasks;
 public class TasksService : ITasksService
 {
     private readonly CaseWorkContext _dbContext;
+    private readonly IMapper _mapper;
+    private readonly IInvitesService _invitesService;
 
-    public TasksService(CaseWorkContext dbContext)
+    public TasksService(CaseWorkContext dbContext, IInvitesService invitesService)
     {
         _dbContext = dbContext;
+        _invitesService = invitesService;
     }
-    
+
+    public async Task<Models.Task?> GetById(int id)
+    {
+        return await _dbContext.Tasks.FirstOrDefaultAsync(v => v.Id == id);
+    }
+
     public async Task<IEnumerable<Models.Task>> GetInCompletedTasks(string userEmail)
     {
         return await _dbContext.Tasks
@@ -64,10 +75,20 @@ public class TasksService : ITasksService
         return task;
     }
 
-    public async Task<Models.Task> Create(Models.Task task)
+    public async Task<Models.Task> Create(TaskCreate taskCreate, User userCreator, User invitedUser)
     {
+        Models.Task task = _mapper.Map<Models.Task>(taskCreate);
+        task.Employer = userCreator;
+        task.Executor = invitedUser;
         _dbContext.Tasks.Add(task);
         await _dbContext.SaveChangesAsync();
+
+        // creating invite
+        await _invitesService.Create(userCreator.Email, invitedUser.Email, new InviteCreate()
+        {
+            InviteType = InviteType.ToTask,
+            InviteEntityId = task.Id
+        });
         return task;
     }
 }

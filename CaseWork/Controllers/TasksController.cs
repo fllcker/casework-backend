@@ -22,18 +22,11 @@ namespace CaseWork.Controllers
     {
         private readonly ITasksService _tasksService;
         private readonly IUsersService _usersService;
-        private readonly IInvitesService _invitesService;
-        private readonly IMapper _mapper;
-        private readonly CaseWorkContext _dbContext;
 
-        public TasksController(ITasksService tasksService, IUsersService usersService,
-            IMapper mapper, IInvitesService invitesService, CaseWorkContext dbContext)
+        public TasksController(ITasksService tasksService, IUsersService usersService)
         {
             _tasksService = tasksService;
             _usersService = usersService;
-            _invitesService = invitesService;
-            _mapper = mapper;
-            _dbContext = dbContext;
         }
         
         [HttpGet]
@@ -85,29 +78,13 @@ namespace CaseWork.Controllers
         [Route("create/{inviteTo}")]
         public async Task<ActionResult<Models.Task>> Create(TaskCreate taskCreate, string inviteTo)
         {
-            var userCreatorEmail = User.FindFirstValue(ClaimTypes.Email)!;
-            var userCreator = await _usersService.GetByEmail(userCreatorEmail);
+            var userCreator = await _usersService.GetByEmail(User.FindFirstValue(ClaimTypes.Email)!);
             if (userCreator == null) return Unauthorized();
             
             var invitedUser = await _usersService.GetByEmail(inviteTo);
             if (invitedUser == null) return BadRequest("User not found!");
             
-            Models.Task task = _mapper.Map<Models.Task>(taskCreate);
-            task.Employer = userCreator;
-            task.Executor = invitedUser;
-            _dbContext.Tasks.Add(task);
-            await _dbContext.SaveChangesAsync();
-
-            // if (invitedUser != null)
-            // {
-            //     await _invitesService.Create(userCreator.Email, invitedUser.Email, new InviteCreate()
-            //     {
-            //         InviteType = InviteType.ToTask,
-            //         InviteEntityId = task.Id
-            //     });
-            // }
-            
-            return task;
+            return await _tasksService.Create(taskCreate, userCreator, invitedUser);
         }
     }
 }

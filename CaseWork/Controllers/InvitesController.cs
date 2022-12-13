@@ -47,8 +47,15 @@ namespace CaseWork.Controllers
         [Route("deny/{id}")]
         public async Task<ActionResult<Invite>> DenyAnswer(int id)
         {
-            var email = User.FindFirstValue(ClaimTypes.Email)!;
-            return await _invitesService.DenyInvite(id, email);
+            try
+            {
+                var email = User.FindFirstValue(ClaimTypes.Email)!;
+                return await _invitesService.DenyInvite(id, email);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
         
         [HttpGet]
@@ -56,8 +63,15 @@ namespace CaseWork.Controllers
         [Route("accept/{id}")]
         public async Task<ActionResult<Invite>> AcceptAnswer(int id)
         {
-            var email = User.FindFirstValue(ClaimTypes.Email)!;
-            return await _invitesService.AcceptInvite(id, email);
+            try
+            {
+                var email = User.FindFirstValue(ClaimTypes.Email)!;
+                return await _invitesService.AcceptInvite(id, email);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }

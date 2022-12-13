@@ -34,11 +34,6 @@ public class InvitesService : IInvitesService
         Invite invite = _mapper.Map<Invite>(inviteCreate);
         invite.Initiator = user;
         invite.Target = target;
-        invite.LinkHash = BCrypt.Net.BCrypt.HashPassword(
-                invite.InviteEntityId + _configuration.GetSection("Config:Secret").Value!)
-            .ToCharArray()
-            .Take(10)
-            .ToString();
         _dbContext.Invites.Add(invite);
         await _dbContext.SaveChangesAsync();
         return invite;
@@ -70,13 +65,13 @@ public class InvitesService : IInvitesService
 
         if (invite.InviteType == InviteType.ToTask)
         {
-            var task = new Models.Task()
-            {
-                
-            };
-            var returnedTask = await _tasksService.Create(task); // не доделано
+            var task = await _tasksService.GetById(invite.InviteEntityId);
+            if (task == null) throw new Exception("Task not found!");
+            if (task.Executor.Email != userEmail) throw new Exception("Invite error!");
+            task.AcceptedTime = ((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
+            await _dbContext.SaveChangesAsync();
         }
         
-        return invite; 
+        return invite;
     }
 }

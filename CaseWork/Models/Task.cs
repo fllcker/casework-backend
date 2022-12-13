@@ -10,10 +10,10 @@ public class Task
     public string Title { get; set; }
     public string Assignment { get; set; }
     public int Urgency { get; set; } = 0; // procents
-    public DateTimeKind DeadLine { get; set; }
+    public long DeadLine { get; set; }
     public bool? IsComplete { get; set; } = false;
-    public DateTimeKind AcceptedTime { get; set; }
-    public DateTimeKind CompletedTime { get; set; }
+    public long AcceptedTime { get; set; }
+    public long CompletedTime { get; set; }
     
     public User Employer { get; set; }
     public User Executor { get; set; }
