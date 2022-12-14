@@ -6,14 +6,10 @@
     <projectFile profileName="https">CaseWork/CaseWork.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="+ tasks find methods">
+    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/InvitesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/InvitesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/TasksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/TasksController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/CaseWorkContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Migrations/CaseWorkContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Models/Task.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Models/Task.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Services/Invites/InvitesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Invites/InvitesService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Tasks/ITasksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Tasks/ITasksService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +33,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -100,7 +96,9 @@
       <workItem from="1670743234424" duration="3189000" />
       <workItem from="1670769070455" duration="13114000" />
       <workItem from="1670851051351" duration="8131000" />
-      <workItem from="1670938092850" duration="1138000" />
+      <workItem from="1670938092850" duration="1484000" />
+      <workItem from="1671035529520" duration="41000" />
+      <workItem from="1671035608307" duration="2406000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670704652703</created>
@@ -158,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670854789174</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="+tasks, invites create methods, +cleaning">
+      <created>1670939556193</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670939556193</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,6 +192,7 @@
     <MESSAGE value="+get profile data, get user roles" />
     <MESSAGE value="role relations controller setrole by id (changed to)=&gt; set role by email." />
     <MESSAGE value="+ tasks find methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ tasks find methods" />
+    <MESSAGE value="+tasks, invites create methods, +cleaning" />
+    <option name="LAST_COMMIT_MESSAGE" value="+tasks, invites create methods, +cleaning" />
   </component>
 </project>

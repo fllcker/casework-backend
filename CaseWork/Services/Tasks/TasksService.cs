@@ -13,10 +13,11 @@ public class TasksService : ITasksService
     private readonly IMapper _mapper;
     private readonly IInvitesService _invitesService;
 
-    public TasksService(CaseWorkContext dbContext, IInvitesService invitesService)
+    public TasksService(CaseWorkContext dbContext, IInvitesService invitesService, IMapper mapper)
     {
         _dbContext = dbContext;
         _invitesService = invitesService;
+        _mapper = mapper;
     }
 
     public async Task<Models.Task?> GetById(int id)

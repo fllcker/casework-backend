@@ -15,8 +15,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<CaseWorkContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("CaseWorkContext") ?? throw new InvalidOperationException("Connection string 'CaseWorkContext' not found.")));
 
-// Add services to the container.
+builder.Services.AddCors(options => { options.AddPolicy(name: "cors", builder => { builder.AllowAnyOrigin(); builder.AllowAnyHeader(); builder.AllowAnyMethod(); }); });
 
+// Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -52,6 +53,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("cors");
 
 app.UseAuthentication();
 app.UseAuthorization();

@@ -12,16 +12,14 @@ public class InvitesService : IInvitesService
 {
     private readonly CaseWorkContext _dbContext;
     private readonly IUsersService _usersService;
-    private readonly ITasksService _tasksService;
     private readonly IConfiguration _configuration;
     private readonly IMapper _mapper;
 
     public InvitesService(CaseWorkContext dbContext, IUsersService usersService, 
-        IMapper mapper, IConfiguration configuration, ITasksService tasksService)
+        IMapper mapper, IConfiguration configuration)
     {
         _dbContext = dbContext;
         _usersService = usersService;
-        _tasksService = tasksService;
         _configuration = configuration;
         _mapper = mapper;
     }
@@ -65,7 +63,7 @@ public class InvitesService : IInvitesService
 
         if (invite.InviteType == InviteType.ToTask)
         {
-            var task = await _tasksService.GetById(invite.InviteEntityId);
+            var task = await _dbContext.Tasks.FirstOrDefaultAsync(v => v.Id == invite.InviteEntityId);
             if (task == null) throw new Exception("Task not found!");
             if (task.Executor.Email != userEmail) throw new Exception("Invite error!");
             task.AcceptedTime = ((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
