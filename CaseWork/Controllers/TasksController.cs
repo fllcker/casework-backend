@@ -13,6 +13,7 @@ using CaseWork.Services.Users;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Task = System.Threading.Tasks.Task;
 
 namespace CaseWork.Controllers
 {
@@ -27,6 +28,22 @@ namespace CaseWork.Controllers
         {
             _tasksService = tasksService;
             _usersService = usersService;
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("get/id/{id}")]
+        public async Task<ActionResult<Models.Task>> GetById(int id)
+        {
+            try
+            {
+                var userEmail = User.FindFirstValue(ClaimTypes.Email)!;
+                return await _tasksService.GetByIdWithVerifies(id, userEmail);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
         
         [HttpGet]

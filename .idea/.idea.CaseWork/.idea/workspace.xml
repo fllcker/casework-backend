@@ -8,8 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Invites/InvitesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Invites/InvitesService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/TasksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/TasksController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Tasks/ITasksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Tasks/ITasksService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,6 +99,10 @@
       <workItem from="1670938092850" duration="1484000" />
       <workItem from="1671035529520" duration="41000" />
       <workItem from="1671035608307" duration="2406000" />
+      <workItem from="1671047936248" duration="24000" />
+      <workItem from="1671108547463" duration="2029000" />
+      <workItem from="1671132787305" duration="605000" />
+      <workItem from="1671192659182" duration="3071000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670704652703</created>
@@ -163,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670939556193</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="bugs fix">
+      <created>1671047950388</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1671047950388</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +204,7 @@
     <MESSAGE value="role relations controller setrole by id (changed to)=&gt; set role by email." />
     <MESSAGE value="+ tasks find methods" />
     <MESSAGE value="+tasks, invites create methods, +cleaning" />
-    <option name="LAST_COMMIT_MESSAGE" value="+tasks, invites create methods, +cleaning" />
+    <MESSAGE value="bugs fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="bugs fix" />
   </component>
 </project>

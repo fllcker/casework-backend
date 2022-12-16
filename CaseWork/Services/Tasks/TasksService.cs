@@ -3,7 +3,10 @@ using CaseWork.Data;
 using CaseWork.Models;
 using CaseWork.Models.Dto;
 using CaseWork.Services.Invites;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Task = System.Threading.Tasks.Task;
 
 namespace CaseWork.Services.Tasks;
 
@@ -23,6 +26,18 @@ public class TasksService : ITasksService
     public async Task<Models.Task?> GetById(int id)
     {
         return await _dbContext.Tasks.FirstOrDefaultAsync(v => v.Id == id);
+    }
+
+    public async Task<Models.Task> GetByIdWithVerifies(int id, string accessEmail)
+    {
+        var res = await _dbContext.Tasks
+            .Include(v => v.Employer)
+            .Include(v => v.Executor)
+            .FirstOrDefaultAsync(v => v.Id == id);
+        if (res == null) throw new Exception("Task not found!");
+        if (res.Employer.Email != accessEmail && res.Executor.Email != accessEmail)
+            throw new Exception("Access denied!");
+        return res;
     }
 
     public async Task<IEnumerable<Models.Task>> GetInCompletedTasks(string userEmail)

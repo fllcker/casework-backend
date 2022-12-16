@@ -6,6 +6,7 @@ namespace CaseWork.Services.Tasks;
 public interface ITasksService
 {
     public Task<Models.Task?> GetById(int id);
+    public Task<Models.Task> GetByIdWithVerifies(int id, string accessEmail);
     public Task<IEnumerable<Models.Task>> GetInCompletedTasks(string userEmail);
     public Task<IEnumerable<Models.Task>> GetInCompletedTasksByEmployer(string userEmail);
     public Task<IEnumerable<Models.Task>> GetAllTasks(string userEmail, GetBy by = GetBy.Executor);
