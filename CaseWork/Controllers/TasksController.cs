@@ -46,33 +46,44 @@ namespace CaseWork.Controllers
             }
         }
         
+        // [HttpGet]
+        // [Authorize]
+        // [Route("get/incompleted/executor")]
+        // public async Task<IEnumerable<Models.Task>> GetInCompletedTasks()
+        //     => await _tasksService
+        //         .GetInCompletedTasks(User.FindFirstValue(ClaimTypes.Email)!);
+        //
+        // [HttpGet]
+        // [Authorize]
+        // [Route("get/incompleted/employer")]
+        // public async Task<IEnumerable<Models.Task>> GetInCompletedTasksByEmployer()
+        //     => await _tasksService
+        //         .GetInCompletedTasksByEmployer(User.FindFirstValue(ClaimTypes.Email)!);
+        //
+        // [HttpGet]
+        // [Authorize]
+        // [Route("get/all/executor")]
+        // public async Task<IEnumerable<Models.Task>> GetAllTasksByExecutor()
+        //     => await _tasksService
+        //         .GetAllTasks(User.FindFirstValue(ClaimTypes.Email)!, GetBy.Executor);
+        //
+        // [HttpGet]
+        // [Authorize]
+        // [Route("get/all/employer")]
+        // public async Task<IEnumerable<Models.Task>> GetAllTasksByEmployer()
+        //     => await _tasksService
+        //         .GetAllTasks(User.FindFirstValue(ClaimTypes.Email)!, GetBy.Employer);
+
         [HttpGet]
         [Authorize]
-        [Route("get/incompleted/executor")]
-        public async Task<IEnumerable<Models.Task>> GetInCompletedTasks()
-            => await _tasksService
-                .GetInCompletedTasks(User.FindFirstValue(ClaimTypes.Email)!);
-        
-        [HttpGet]
-        [Authorize]
-        [Route("get/incompleted/employer")]
-        public async Task<IEnumerable<Models.Task>> GetInCompletedTasksByEmployer()
-            => await _tasksService
-                .GetInCompletedTasksByEmployer(User.FindFirstValue(ClaimTypes.Email)!);
-        
-        [HttpGet]
-        [Authorize]
-        [Route("get/all/executor")]
-        public async Task<IEnumerable<Models.Task>> GetAllTasksByExecutor()
-            => await _tasksService
-                .GetAllTasks(User.FindFirstValue(ClaimTypes.Email)!, GetBy.Executor);
-        
-        [HttpGet]
-        [Authorize]
-        [Route("get/all/employer")]
-        public async Task<IEnumerable<Models.Task>> GetAllTasksByEmployer()
-            => await _tasksService
-                .GetAllTasks(User.FindFirstValue(ClaimTypes.Email)!, GetBy.Employer);
+        [Route("get/filter")]
+        public async Task<IEnumerable<Models.Task>> GetTasksByFilter([FromBody] TasksByFilterAr tasksByFilterAr)
+        {
+            return await _tasksService.GetByFilter(
+                tasksByFilterAr.TasksTypeFilter,
+                tasksByFilterAr.TasksAccessFilter,
+                User.FindFirstValue(ClaimTypes.Email)!);
+        }
 
         [HttpGet]
         [Authorize]

@@ -40,44 +40,44 @@ public class TasksService : ITasksService
         return res;
     }
 
-    public async Task<IEnumerable<Models.Task>> GetInCompletedTasks(string userEmail)
-    {
-        return await _dbContext.Tasks
-            .Include(v => v.Employer)
-            .Include(v => v.Executor)
-            .Where(v => v.Executor.Email == userEmail)
-            .Where(v => v.IsComplete == false)
-            .OrderByDescending(v => v.DeadLine)
-            .ThenByDescending(v => v.AcceptedTime)
-            .ToListAsync();
-    }
-    
-    public async Task<IEnumerable<Models.Task>> GetInCompletedTasksByEmployer(string userEmail)
-    {
-        return await _dbContext.Tasks
-            .Include(v => v.Employer)
-            .Include(v => v.Executor)
-            .Where(v => v.Employer.Email == userEmail)
-            .Where(v => v.IsComplete == false)
-            .OrderByDescending(v => v.DeadLine)
-            .ThenByDescending(v => v.AcceptedTime)
-            .ToListAsync();
-    }
-    
-    public async Task<IEnumerable<Models.Task>> GetAllTasks(string userEmail, GetBy by = GetBy.Executor)
-    {
-        var tasks = await _dbContext.Tasks
-            .Include(v => v.Employer)
-            .Include(v => v.Executor)
-            .Where(v => v.IsComplete == false)
-            .OrderByDescending(v => v.DeadLine)
-            .ThenByDescending(v => v.AcceptedTime)
-            .ToListAsync();
-
-        if (by == GetBy.Executor)
-            return tasks.Where(v => v.Executor.Email == userEmail).ToList();
-        return tasks.Where(v => v.Employer.Email == userEmail).ToList();
-    }
+    // public async Task<IEnumerable<Models.Task>> GetInCompletedTasksByExecutor(string userEmail)
+    // {
+    //     return await _dbContext.Tasks
+    //         .Include(v => v.Employer)
+    //         .Include(v => v.Executor)
+    //         .Where(v => v.Executor.Email == userEmail)
+    //         .Where(v => v.IsComplete == false)
+    //         .OrderByDescending(v => v.DeadLine)
+    //         .ThenByDescending(v => v.AcceptedTime)
+    //         .ToListAsync();
+    // }
+    //
+    // public async Task<IEnumerable<Models.Task>> GetInCompletedTasksByEmployer(string userEmail)
+    // {
+    //     return await _dbContext.Tasks
+    //         .Include(v => v.Employer)
+    //         .Include(v => v.Executor)
+    //         .Where(v => v.Employer.Email == userEmail)
+    //         .Where(v => v.IsComplete == false)
+    //         .OrderByDescending(v => v.DeadLine)
+    //         .ThenByDescending(v => v.AcceptedTime)
+    //         .ToListAsync();
+    // }
+    //
+    // public async Task<IEnumerable<Models.Task>> GetAllTasks(string userEmail, GetBy by = GetBy.Executor)
+    // {
+    //     var tasks = await _dbContext.Tasks
+    //         .Include(v => v.Employer)
+    //         .Include(v => v.Executor)
+    //         .Where(v => v.IsComplete == false)
+    //         .OrderByDescending(v => v.DeadLine)
+    //         .ThenByDescending(v => v.AcceptedTime)
+    //         .ToListAsync();
+    //
+    //     if (by == GetBy.Executor)
+    //         return tasks.Where(v => v.Executor.Email == userEmail).ToList();
+    //     return tasks.Where(v => v.Employer.Email == userEmail).ToList();
+    // }
 
     public async Task<Models.Task> ToComplete(string userEmail, int taskId)
     {
@@ -106,5 +106,65 @@ public class TasksService : ITasksService
             InviteEntityId = task.Id
         });
         return task;
+    }
+
+    public async Task<List<Models.Task>> GetByFilter(TasksTypeFilter filterType, TasksAccessFilter filterAccess, string accessEmail)
+    {
+        var tasks = await _dbContext.Tasks
+            .Include(v => v.Employer)
+            .Include(v => v.Executor)
+            .ToListAsync();
+
+        switch (filterType)
+        {
+            case TasksTypeFilter.InCompleted:
+            {
+                tasks = tasks.Where(v => v.IsComplete == false)
+                    .ToList();
+                break;
+            }
+            case TasksTypeFilter.Completed:
+            {
+                tasks = tasks.Where(v => v.IsComplete == true)
+                    .ToList();
+                break;
+            }
+            case TasksTypeFilter.DeadLine:
+            {
+                tasks = tasks.OrderByDescending(v => v.DeadLine)
+                    .ToList();
+                break;
+            }
+            case TasksTypeFilter.Urgency:
+            {
+                tasks = tasks
+                    .OrderByDescending(v => v.Urgency)
+                    .ThenByDescending(v => v.DeadLine)
+                    .ToList();
+                break;
+            }
+        }
+
+        switch (filterAccess)
+        {
+            case TasksAccessFilter.Employer:
+            {
+                tasks = tasks.Where(v => v.Employer.Email == accessEmail)
+                    .ToList();
+                break;
+            }
+            case TasksAccessFilter.Executor:
+            {
+                tasks = tasks.Where(v => v.Executor.Email == accessEmail)
+                    .ToList();
+                break;
+            }
+        }
+        
+
+        return tasks
+            .OrderByDescending(v => v.DeadLine)
+            .ThenByDescending(v => v.AcceptedTime)
+            .ToList();
     }
 }
