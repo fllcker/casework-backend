@@ -27,4 +27,16 @@ public class CompaniesService : ICompaniesService
         await _dbContext.SaveChangesAsync();
         return company;
     }
+
+    public async Task<IEnumerable<User>> GetAllMembers(string companyName, string accessEmail)
+    {
+        Company? company = await _dbContext.Companies
+                .Include(v => v.Users)
+                .FirstOrDefaultAsync(v => v.Name == companyName);
+        
+        if (company == null) throw new Exception("Company not found!");
+        if (company.Users.Count(v => v.Email == accessEmail) == 0)
+            throw new Exception("Access denied!");
+        return company.Users.ToList();
+    }
 }

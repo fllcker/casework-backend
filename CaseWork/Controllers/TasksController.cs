@@ -105,12 +105,12 @@ namespace CaseWork.Controllers
         [HttpPost]
         [Authorize]
         [Route("create/{inviteTo}")]
-        public async Task<ActionResult<Models.Task>> Create(TaskCreate taskCreate, string inviteTo)
+        public async Task<ActionResult<Models.Task>> Create(TaskCreate taskCreate, string? inviteTo)
         {
             var userCreator = await _usersService.GetByEmail(User.FindFirstValue(ClaimTypes.Email)!);
             if (userCreator == null) return Unauthorized();
-            
-            var invitedUser = await _usersService.GetByEmail(inviteTo);
+
+            var invitedUser = await _usersService.GetByEmail(inviteTo ?? userCreator.Email);
             if (invitedUser == null) return BadRequest("User not found!");
             
             return await _tasksService.Create(taskCreate, userCreator, invitedUser);
