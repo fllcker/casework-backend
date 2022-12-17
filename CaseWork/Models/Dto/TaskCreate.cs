@@ -9,5 +9,5 @@ public class TaskCreate
     public string Title { get; set; }
     public string Assignment { get; set; }
     public int Urgency { get; set; } = 0;
-    public DateTimeKind DeadLine { get; set; }
+    public long DeadLine { get; set; }
 }
