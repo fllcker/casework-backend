@@ -131,7 +131,7 @@ public class TasksService : ITasksService
             }
             case TasksTypeFilter.DeadLine:
             {
-                tasks = tasks.OrderByDescending(v => v.DeadLine)
+                tasks = tasks.OrderBy(v => v.DeadLine)
                     .ToList();
                 break;
             }
@@ -163,7 +163,7 @@ public class TasksService : ITasksService
         
 
         return tasks
-            .OrderByDescending(v => v.DeadLine)
+            .OrderBy(v => v.DeadLine)
             .ThenByDescending(v => v.AcceptedTime)
             .ToList();
     }

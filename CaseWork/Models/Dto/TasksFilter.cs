@@ -12,5 +12,6 @@ public enum TasksTypeFilter
 public enum TasksAccessFilter
 {
     Executor = 0,
-    Employer
+    Employer,
+    All
 }

@@ -6,21 +6,15 @@
     <projectFile profileName="https">CaseWork/CaseWork.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="+get task by id">
-      <change afterPath="$PROJECT_DIR$/CaseWork/Models/Dto/TasksByFilterAr.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CaseWork/Models/Dto/TasksFilter.cs" afterDir="false" />
+    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/TasksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/TasksController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Tasks/ITasksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Tasks/ITasksService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Models/Dto/TasksFilter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Models/Dto/TasksFilter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Services/Tasks/ITasksService.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -107,7 +101,8 @@
       <workItem from="1671047936248" duration="24000" />
       <workItem from="1671108547463" duration="2029000" />
       <workItem from="1671132787305" duration="605000" />
-      <workItem from="1671192659182" duration="5630000" />
+      <workItem from="1671192659182" duration="5687000" />
+      <workItem from="1671285357754" duration="1607000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670704652703</created>
@@ -186,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671215528626</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="changing get tasks: from many methods =&gt; one with filter">
+      <created>1671217935126</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1671217935126</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +220,7 @@
     <MESSAGE value="+tasks, invites create methods, +cleaning" />
     <MESSAGE value="bugs fix" />
     <MESSAGE value="+get task by id" />
-    <option name="LAST_COMMIT_MESSAGE" value="+get task by id" />
+    <MESSAGE value="changing get tasks: from many methods =&gt; one with filter" />
+    <option name="LAST_COMMIT_MESSAGE" value="changing get tasks: from many methods =&gt; one with filter" />
   </component>
 </project>
