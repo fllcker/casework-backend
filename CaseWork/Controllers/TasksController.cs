@@ -109,8 +109,9 @@ namespace CaseWork.Controllers
         {
             var userCreator = await _usersService.GetByEmail(User.FindFirstValue(ClaimTypes.Email)!);
             if (userCreator == null) return Unauthorized();
-
-            var invitedUser = await _usersService.GetByEmail(inviteTo ?? userCreator.Email);
+            inviteTo ??= userCreator.Email;
+            
+            var invitedUser = await _usersService.GetByEmail(inviteTo);
             if (invitedUser == null) return BadRequest("User not found!");
             
             return await _tasksService.Create(taskCreate, userCreator, invitedUser);

@@ -6,16 +6,16 @@
     <projectFile profileName="https">CaseWork/CaseWork.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="">
+    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="+ companies controller, service;&#10;+ *if task invite is null - task inviter is creator*">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/TasksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/TasksController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Companies/CompaniesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Companies/CompaniesService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Companies/ICompaniesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Companies/ICompaniesService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Services/Companies/CompaniesService.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -105,7 +105,7 @@
       <workItem from="1671192659182" duration="5687000" />
       <workItem from="1671285357754" duration="9867000" />
       <workItem from="1671305189742" duration="718000" />
-      <workItem from="1671308530870" duration="134000" />
+      <workItem from="1671308530870" duration="813000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670704652703</created>
@@ -205,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671297805893</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="+ companies controller, service;&#10;+ *if task invite is null - task inviter is creator*">
+      <created>1671308750015</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1671308750015</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,6 +247,7 @@
     <MESSAGE value="changing get tasks: from many methods =&gt; one with filter" />
     <MESSAGE value="some fixes..." />
     <MESSAGE value="+invites to companies" />
-    <option name="LAST_COMMIT_MESSAGE" value="+invites to companies" />
+    <MESSAGE value="+ companies controller, service;&#10;+ *if task invite is null - task inviter is creator*" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ companies controller, service;&#10;+ *if task invite is null - task inviter is creator*" />
   </component>
 </project>
