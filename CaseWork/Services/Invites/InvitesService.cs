@@ -61,15 +61,42 @@ public class InvitesService : IInvitesService
         invite.IsAccepted = true;
         await _dbContext.SaveChangesAsync();
 
-        if (invite.InviteType == InviteType.ToTask)
+        switch (invite.InviteType)
         {
-            var task = await _dbContext.Tasks.FirstOrDefaultAsync(v => v.Id == invite.InviteEntityId);
-            if (task == null) throw new Exception("Task not found!");
-            if (task.Executor.Email != userEmail) throw new Exception("Invite error!");
-            task.AcceptedTime = ((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
-            await _dbContext.SaveChangesAsync();
+            case InviteType.ToTask: 
+                await AcceptToTask(invite, userEmail); 
+                break;
+            case InviteType.ToCompany:
+                await AcceptToCompany(invite, userEmail);
+                break;
         }
         
         return invite;
     }
+
+    private async Task<Models.Task> AcceptToTask(Invite invite, string userEmail)
+    {
+        var task = await _dbContext.Tasks.FirstOrDefaultAsync(v => v.Id == invite.InviteEntityId);
+        if (task == null) throw new Exception("Task not found!");
+        if (task.Executor.Email != userEmail) throw new Exception("Invite error!");
+        task.AcceptedTime = ((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
+        await _dbContext.SaveChangesAsync();
+        return task;
+    }
+
+    private async Task<Company> AcceptToCompany(Invite invite, string userEmail)
+    {
+        var company = await _dbContext.Companies
+            .Include(v => v.Users)
+            .FirstOrDefaultAsync(v => v.Id == invite.InviteEntityId);
+        if (company == null) throw new Exception("Company not found!");
+        if (company.Users.Count(v => v.Email == userEmail) != 0)
+            throw new Exception("You are already a member of this company");
+        
+        company.Users.Add(await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == userEmail)
+        ?? throw new Exception("User not found!"));
+        await _dbContext.SaveChangesAsync();
+        return company;
+    }
+
 }

@@ -5,6 +5,7 @@ using CaseWork.Data;
 using CaseWork.Models;
 using CaseWork.Services;
 using CaseWork.Services.Auth;
+using CaseWork.Services.Companies;
 using CaseWork.Services.Invites;
 using CaseWork.Services.Tasks;
 using CaseWork.Services.Users;
@@ -42,6 +43,7 @@ builder.Services.AddTransient<IAuthService, AuthService>();
 builder.Services.AddTransient<IUsersService, UsersService>();
 builder.Services.AddTransient<ITasksService, TasksService>();
 builder.Services.AddTransient<IInvitesService, InvitesService>();
+builder.Services.AddTransient<ICompaniesService, CompaniesService>();
 
 var app = builder.Build();
 

@@ -75,6 +75,7 @@ namespace CaseWork.Controllers
         //         .GetAllTasks(User.FindFirstValue(ClaimTypes.Email)!, GetBy.Employer);
 
         [HttpGet]
+        [HttpPost]
         [Authorize]
         [Route("get/filter")]
         public async Task<IEnumerable<Models.Task>> GetTasksByFilter([FromBody] TasksByFilterAr tasksByFilterAr)
