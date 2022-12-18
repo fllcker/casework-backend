@@ -35,6 +35,10 @@ public class InvitesService : IInvitesService
         invite.Target = target;
         _dbContext.Invites.Add(invite);
         await _dbContext.SaveChangesAsync();
+
+        if (invite.Initiator.Id == invite.Target.Id)
+            await AcceptInvite(invite.Id, invite.Initiator.Email);
+        
         return invite;
     }
 

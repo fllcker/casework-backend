@@ -104,11 +104,13 @@ public class TasksService : ITasksService
         await _dbContext.SaveChangesAsync();
 
         // creating invite
-        await _invitesService.Create(userCreator.Email, invitedUser.Email, new InviteCreate()
+        var invite = await _invitesService.Create(userCreator.Email, invitedUser.Email, new InviteCreate()
         {
             InviteType = InviteType.ToTask,
             InviteEntityId = task.Id
         });
+        task.Invite = invite;
+        await _dbContext.SaveChangesAsync();
         return task;
     }
 
@@ -175,6 +177,7 @@ public class TasksService : ITasksService
     public async Task<IEnumerable<Models.Task>> GetNonAcceptedTasks(string accessEmail)
     {
         return await _dbContext.Tasks
+            .Include(v => v.Invite)
             .Include(v => v.Executor)
             .Where(v => v.AcceptedTime == -1)
             .Where(v => v.Executor.Email == accessEmail)

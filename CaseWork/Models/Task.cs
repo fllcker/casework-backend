@@ -19,6 +19,7 @@ public class Task
     public User Employer { get; set; }
     public User Executor { get; set; }
     public Task? SubTask { get; set; }
+    public Invite? Invite { get; set; }
     
     public long CreatedAt { get; set; } = ((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
 }
