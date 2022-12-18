@@ -6,10 +6,12 @@
     <projectFile profileName="https">CaseWork/CaseWork.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="some fixes x1000">
+    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="some fixes">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/CaseWorkContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Migrations/CaseWorkContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/InvitesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/InvitesController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Models/Task.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Models/Task.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Invites/IInvitesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Invites/IInvitesService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Invites/InvitesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Invites/InvitesService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,15 +30,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.CaseWork: https">
     <configuration name="CaseWork: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/CaseWork/CaseWork.csproj" />
@@ -106,7 +108,7 @@
       <workItem from="1671285357754" duration="9867000" />
       <workItem from="1671305189742" duration="718000" />
       <workItem from="1671308530870" duration="2446000" />
-      <workItem from="1671358474998" duration="95000" />
+      <workItem from="1671358474998" duration="1042000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670704652703</created>
@@ -227,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671309955206</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="some fixes">
+      <created>1671358671521</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1671358671521</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,8 +272,8 @@
     <MESSAGE value="some fixes..." />
     <MESSAGE value="+invites to companies" />
     <MESSAGE value="+ companies controller, service;&#10;+ *if task invite is null - task inviter is creator*" />
-    <MESSAGE value="some fixes" />
     <MESSAGE value="some fixes x1000" />
-    <option name="LAST_COMMIT_MESSAGE" value="some fixes x1000" />
+    <MESSAGE value="some fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="some fixes" />
   </component>
 </project>

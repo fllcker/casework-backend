@@ -5,6 +5,7 @@ using CaseWork.Models.Dto;
 using CaseWork.Services.Tasks;
 using CaseWork.Services.Users;
 using Microsoft.EntityFrameworkCore;
+using Task = CaseWork.Models.Task;
 
 namespace CaseWork.Services.Invites;
 
@@ -72,6 +73,16 @@ public class InvitesService : IInvitesService
         }
         
         return invite;
+    }
+
+    public async Task<IEnumerable<Invite>> GetUserInvites(string accessEmail)
+    {
+        return await _dbContext.Invites
+            .Include(v => v.Target)
+            .Where(v => v.IsAccepted == false)
+            .Where(v => v.IsDenied == false)
+            .Where(v => v.Target.Email == accessEmail)
+            .ToListAsync();
     }
 
     private async Task<Models.Task> AcceptToTask(Invite invite, string userEmail)

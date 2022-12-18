@@ -164,8 +164,8 @@ public class TasksService : ITasksService
                 break;
             }
         }
-        
 
-        return tasks.ToList();
+
+        return tasks.Where(v => v.AcceptedTime != -1).ToList();
     }
 }

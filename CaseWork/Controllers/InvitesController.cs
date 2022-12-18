@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
+using Task = System.Threading.Tasks.Task;
 
 namespace CaseWork.Controllers
 {
@@ -72,6 +73,15 @@ namespace CaseWork.Controllers
             {
                 return BadRequest(e.Message);
             }
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("get/my")]
+        public async Task<IEnumerable<Invite>> GetUserInvites()
+        {
+            return await _invitesService
+                .GetUserInvites(User.FindFirstValue(ClaimTypes.Email)!);
         }
     }
 }
