@@ -88,6 +88,15 @@ namespace CaseWork.Controllers
 
         [HttpGet]
         [Authorize]
+        [Route("get/nonaccepted")]
+        public async Task<IEnumerable<Models.Task>> GetNonAcceptedTasks()
+        {
+            return await _tasksService
+                .GetNonAcceptedTasks(User.FindFirstValue(ClaimTypes.Email)!);
+        }
+
+        [HttpGet]
+        [Authorize]
         [Route("complete/{id}")]
         public async Task<ActionResult<Models.Task>> ToComplete(int id)
         {

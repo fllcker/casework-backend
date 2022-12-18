@@ -83,5 +83,20 @@ namespace CaseWork.Controllers
             return await _invitesService
                 .GetUserInvites(User.FindFirstValue(ClaimTypes.Email)!);
         }
+
+        [HttpGet]
+        [Authorize]
+        [Route("get/{taskId}")]
+        public async Task<ActionResult<Invite>> GetInviteByTask(int taskId)
+        {
+            try
+            {
+                return await _invitesService.GetInviteByTask(taskId);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }

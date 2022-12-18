@@ -85,6 +85,20 @@ public class InvitesService : IInvitesService
             .ToListAsync();
     }
 
+    public async Task<Invite> GetInviteByTask(int taskId)
+    {
+        var task = await _dbContext.Tasks
+            .Include(v => v.Executor)
+            .FirstOrDefaultAsync(v => v.Id == taskId);
+        if (task == null) throw new Exception("Task not found!");
+        
+        return await _dbContext.Invites
+            .Include(v => v.Target)
+            .Where(v => v.InviteEntityId == task.Id)
+            .Where(v => v.Target.Id == task.Executor.Id)
+            .FirstOrDefaultAsync() ?? throw new Exception("Invite not found!");
+    }
+    
     private async Task<Models.Task> AcceptToTask(Invite invite, string userEmail)
     {
         var task = await _dbContext.Tasks.FirstOrDefaultAsync(v => v.Id == invite.InviteEntityId);
@@ -109,5 +123,4 @@ public class InvitesService : IInvitesService
         await _dbContext.SaveChangesAsync();
         return company;
     }
-
 }

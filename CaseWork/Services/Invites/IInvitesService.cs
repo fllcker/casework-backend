@@ -9,4 +9,5 @@ public interface IInvitesService
     public Task<Invite> DenyInvite(int inviteId, string userEmail);
     public Task<Invite> AcceptInvite(int inviteId, string userEmail);
     public Task<IEnumerable<Invite>> GetUserInvites(string accessEmail);
+    public Task<Invite> GetInviteByTask(int taskId);
 }

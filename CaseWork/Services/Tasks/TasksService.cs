@@ -168,4 +168,13 @@ public class TasksService : ITasksService
 
         return tasks.Where(v => v.AcceptedTime != -1).ToList();
     }
+
+    public async Task<IEnumerable<Models.Task>> GetNonAcceptedTasks(string accessEmail)
+    {
+        return await _dbContext.Tasks
+            .Include(v => v.Executor)
+            .Where(v => v.AcceptedTime == -1)
+            .Where(v => v.Executor.Email == accessEmail)
+            .ToListAsync();
+    }
 }
