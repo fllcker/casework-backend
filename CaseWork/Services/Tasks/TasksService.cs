@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Text.Json;
+using AutoMapper;
 using CaseWork.Data;
 using CaseWork.Models;
 using CaseWork.Models.Dto;
@@ -87,6 +88,7 @@ public class TasksService : ITasksService
         if (task == null) throw new Exception("Task not found!");
         if (task.IsComplete == true) throw new Exception("Task is already complete!");
         task.IsComplete = true;
+        task.CompletedTime = ((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
         await _dbContext.SaveChangesAsync();
         return task;
     }
@@ -97,6 +99,8 @@ public class TasksService : ITasksService
         task.Employer = userCreator;
         task.Executor = invitedUser;
         _dbContext.Tasks.Add(task);
+        
+        
         await _dbContext.SaveChangesAsync();
 
         // creating invite
@@ -162,9 +166,6 @@ public class TasksService : ITasksService
         }
         
 
-        return tasks
-            .OrderBy(v => v.DeadLine)
-            .ThenByDescending(v => v.AcceptedTime)
-            .ToList();
+        return tasks.ToList();
     }
 }

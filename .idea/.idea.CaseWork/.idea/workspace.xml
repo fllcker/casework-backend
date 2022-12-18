@@ -6,17 +6,16 @@
     <projectFile profileName="https">CaseWork/CaseWork.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="some fixes">
-      <change beforePath="$PROJECT_DIR$/CaseWork/Models/Dto/TaskCreate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Models/Dto/TaskCreate.cs" afterDir="false" />
+    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="some fixes x1000">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/CaseWorkContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Migrations/CaseWorkContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Models/Task.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Models/Task.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Controllers/TasksController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Services/Companies/CompaniesService.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -106,7 +105,8 @@
       <workItem from="1671192659182" duration="5687000" />
       <workItem from="1671285357754" duration="9867000" />
       <workItem from="1671305189742" duration="718000" />
-      <workItem from="1671308530870" duration="1390000" />
+      <workItem from="1671308530870" duration="2446000" />
+      <workItem from="1671358474998" duration="95000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670704652703</created>
@@ -220,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671309784501</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="some fixes x1000">
+      <created>1671309955206</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1671309955206</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,6 +264,7 @@
     <MESSAGE value="+invites to companies" />
     <MESSAGE value="+ companies controller, service;&#10;+ *if task invite is null - task inviter is creator*" />
     <MESSAGE value="some fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="some fixes" />
+    <MESSAGE value="some fixes x1000" />
+    <option name="LAST_COMMIT_MESSAGE" value="some fixes x1000" />
   </component>
 </project>
