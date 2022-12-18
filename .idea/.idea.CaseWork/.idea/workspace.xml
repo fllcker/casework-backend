@@ -6,12 +6,9 @@
     <projectFile profileName="https">CaseWork/CaseWork.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="+get user invites">
+    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="+ tasks: get tasks with invite &#10;+ invites: get invite by task">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/InvitesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/InvitesController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/TasksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/TasksController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Invites/IInvitesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Invites/IInvitesService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Invites/InvitesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Invites/InvitesService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Services/Tasks/ITasksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Tasks/ITasksService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" afterDir="false" />
     </list>
@@ -21,6 +18,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Services/Invites/IInvitesService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Services/Invites/IInvitesService.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -112,7 +110,7 @@
       <workItem from="1671285357754" duration="9867000" />
       <workItem from="1671305189742" duration="718000" />
       <workItem from="1671308530870" duration="2446000" />
-      <workItem from="1671358474998" duration="2529000" />
+      <workItem from="1671358474998" duration="3166000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670704652703</created>
@@ -247,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671359784652</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="+ tasks: get tasks with invite &#10;+ invites: get invite by task">
+      <created>1671361070562</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1671361070562</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,6 +291,7 @@
     <MESSAGE value="some fixes x1000" />
     <MESSAGE value="some fixes" />
     <MESSAGE value="+get user invites" />
-    <option name="LAST_COMMIT_MESSAGE" value="+get user invites" />
+    <MESSAGE value="+ tasks: get tasks with invite &#10;+ invites: get invite by task" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ tasks: get tasks with invite &#10;+ invites: get invite by task" />
   </component>
 </project>

@@ -77,13 +77,15 @@ namespace CaseWork.Controllers
         [HttpGet]
         [HttpPost]
         [Authorize]
-        [Route("get/filter")]
-        public async Task<IEnumerable<Models.Task>> GetTasksByFilter([FromBody] TasksByFilterAr tasksByFilterAr)
+        [Route("get/filter/{skip?}/{take?}")]
+        public async Task<IEnumerable<Models.Task>> GetTasksByFilter([FromBody] TasksByFilterAr tasksByFilterAr,
+            int skip = 0, int take = 10)
         {
             return await _tasksService.GetByFilter(
                 tasksByFilterAr.TasksTypeFilter,
                 tasksByFilterAr.TasksAccessFilter,
-                User.FindFirstValue(ClaimTypes.Email)!);
+                User.FindFirstValue(ClaimTypes.Email)!,
+                skip, take);
         }
 
         [HttpGet]

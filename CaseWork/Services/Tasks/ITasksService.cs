@@ -15,5 +15,5 @@ public interface ITasksService
     public Task<Models.Task> Create(TaskCreate taskCreate, User userCreator, User invitedUser);
 
     public Task<List<Models.Task>> GetByFilter(TasksTypeFilter filterType, TasksAccessFilter filterAccess,
-        string accessEmail);
+        string accessEmail, int skip = 0, int take = 10);
 }

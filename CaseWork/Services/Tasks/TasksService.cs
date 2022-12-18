@@ -112,7 +112,8 @@ public class TasksService : ITasksService
         return task;
     }
 
-    public async Task<List<Models.Task>> GetByFilter(TasksTypeFilter filterType, TasksAccessFilter filterAccess, string accessEmail)
+    public async Task<List<Models.Task>> GetByFilter(TasksTypeFilter filterType, TasksAccessFilter filterAccess, string accessEmail,
+        int skip = 0, int take = 10)
     {
         var tasks = await _dbContext.Tasks
             .Include(v => v.Employer)
@@ -166,7 +167,9 @@ public class TasksService : ITasksService
         }
 
 
-        return tasks.Where(v => v.AcceptedTime != -1).ToList();
+        return tasks.Where(v => v.AcceptedTime != -1)
+            .Skip(skip).Take(take)
+            .ToList();
     }
 
     public async Task<IEnumerable<Models.Task>> GetNonAcceptedTasks(string accessEmail)
