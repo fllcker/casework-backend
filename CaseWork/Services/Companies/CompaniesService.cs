@@ -1,6 +1,7 @@
 ﻿using CaseWork.Data;
 using CaseWork.Models;
 using Microsoft.EntityFrameworkCore;
+using Task = System.Threading.Tasks.Task;
 
 namespace CaseWork.Services.Companies;
 
@@ -38,5 +39,14 @@ public class CompaniesService : ICompaniesService
         if (company.Users.Count(v => v.Email == accessEmail) == 0)
             throw new Exception("Access denied!");
         return company.Users.ToList();
+    }
+
+    public async Task<Company> GetUserCompany(string accessEmail)
+    {
+        var user = await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == accessEmail);
+        if (user == null) throw new Exception("User not found!");
+        return await _dbContext.Companies
+            .FirstOrDefaultAsync(v => v.Users.Contains(user)) 
+            ?? throw new Exception("Company not found!");
     }
 }

@@ -160,6 +160,9 @@ namespace CaseWork.Migrations
                     b.Property<int>("ExecutorId")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("InviteId")
+                        .HasColumnType("integer");
+
                     b.Property<bool?>("IsComplete")
                         .HasColumnType("boolean");
 
@@ -179,6 +182,8 @@ namespace CaseWork.Migrations
                     b.HasIndex("EmployerId");
 
                     b.HasIndex("ExecutorId");
+
+                    b.HasIndex("InviteId");
 
                     b.HasIndex("SubTaskId");
 
@@ -292,6 +297,10 @@ namespace CaseWork.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("CaseWork.Models.Invite", "Invite")
+                        .WithMany()
+                        .HasForeignKey("InviteId");
+
                     b.HasOne("CaseWork.Models.Task", "SubTask")
                         .WithMany()
                         .HasForeignKey("SubTaskId");
@@ -299,6 +308,8 @@ namespace CaseWork.Migrations
                     b.Navigation("Employer");
 
                     b.Navigation("Executor");
+
+                    b.Navigation("Invite");
 
                     b.Navigation("SubTask");
                 });

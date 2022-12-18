@@ -8,6 +8,7 @@ using CaseWork.Services.Companies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Task = System.Threading.Tasks.Task;
 
 namespace CaseWork.Controllers
 {
@@ -46,6 +47,14 @@ namespace CaseWork.Controllers
         {
             return await _companiesService
                 .GetAllMembers(companyName, User.FindFirstValue(ClaimTypes.Email)!);
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("get/company")]
+        public async Task<ActionResult<Company>> GetUserCompany()
+        {
+            return await _companiesService.GetUserCompany(User.FindFirstValue(ClaimTypes.Email)!);
         }
     }
 }
