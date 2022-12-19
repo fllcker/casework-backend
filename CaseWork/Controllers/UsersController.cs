@@ -47,14 +47,14 @@ namespace CaseWork.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        
         [HttpGet]
         [Route("profile")]
         [Authorize]
         public async Task<ActionResult<UserProfileData>> GetProfileData()
         {
             var email = User.FindFirstValue(ClaimTypes.Email);
-            var user = await _context.Users.FirstOrDefaultAsync(v => v.Email == email);
+            var user = await _context.Users.SingleOrDefaultAsync(v => v.Email == email);
             if (user == null) return BadRequest("User not found!");
             return _mapper.Map<UserProfileData>(user);
         }
