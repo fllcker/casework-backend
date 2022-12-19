@@ -43,10 +43,17 @@ namespace CaseWork.Controllers
         [HttpGet]
         [Authorize]
         [Route("get/members/{companyName}")]
-        public async Task<IEnumerable<User>> GetAllMembers(string companyName)
+        public async Task<ActionResult<IEnumerable<User>>> GetAllMembers(string companyName)
         {
-            return await _companiesService
-                .GetAllMembers(companyName, User.FindFirstValue(ClaimTypes.Email)!);
+            try
+            {
+                return Ok(await _companiesService
+                    .GetAllMembers(companyName, User.FindFirstValue(ClaimTypes.Email)!));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
         [HttpGet]
@@ -54,7 +61,15 @@ namespace CaseWork.Controllers
         [Route("get/company")]
         public async Task<ActionResult<Company>> GetUserCompany()
         {
-            return await _companiesService.GetUserCompany(User.FindFirstValue(ClaimTypes.Email)!);
+            try
+            {
+                return await _companiesService
+                    .GetUserCompany(User.FindFirstValue(ClaimTypes.Email)!);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }
