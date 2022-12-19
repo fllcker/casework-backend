@@ -42,13 +42,13 @@ namespace CaseWork.Controllers
 
         [HttpGet]
         [Authorize]
-        [Route("get/members/{companyName}")]
-        public async Task<ActionResult<IEnumerable<User>>> GetAllMembers(string companyName)
+        [Route("get/members/{companyId}")]
+        public async Task<ActionResult<IEnumerable<User>>> GetAllMembers(int companyId)
         {
             try
             {
                 return Ok(await _companiesService
-                    .GetAllMembers(companyName, User.FindFirstValue(ClaimTypes.Email)!));
+                    .GetAllMembers(companyId, User.FindFirstValue(ClaimTypes.Email)!));
             }
             catch (Exception e)
             {

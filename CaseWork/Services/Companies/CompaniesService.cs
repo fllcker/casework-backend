@@ -16,8 +16,8 @@ public class CompaniesService : ICompaniesService
 
     public async Task<Company> Create(Company company, string accessEmail)
     {
-        if (await _dbContext.Companies.CountAsync(v => v.Name == company.Name) != 0)
-            throw new Exception("Company name is busy!");
+        // if (await _dbContext.Companies.CountAsync(v => v.Name == company.Name) != 0)
+        //     throw new Exception("Company name is busy!");
         
         var creator = await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == accessEmail) ??
                       throw new Exception("Company owner not found!");
@@ -29,11 +29,11 @@ public class CompaniesService : ICompaniesService
         return company;
     }
 
-    public async Task<IEnumerable<User>> GetAllMembers(string companyName, string accessEmail)
+    public async Task<IEnumerable<User>> GetAllMembers(int companyId, string accessEmail)
     {
         Company? company = await _dbContext.Companies
                 .Include(v => v.Users)
-                .FirstOrDefaultAsync(v => v.Name == companyName);
+                .SingleOrDefaultAsync(v => v.Id == companyId);
         
         if (company == null) throw new Exception("Company not found!");
         if (company.Users.Count(v => v.Email == accessEmail) == 0)
