@@ -18,14 +18,14 @@ public class UsersService : IUsersService
         _mapper = mapper;
     }
     
-    public async Task<User> UpdateInfo(UserUpdate userUpdate)
+    public async Task<User> UpdateInfo(UserUpdate userUpdate, string accessEmail)
     {
-        var candidate = await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == userUpdate.Email);
+        var candidate = await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == accessEmail);
         if (candidate == null) throw new Exception("User not found!");
         
         _dbContext.Users.Update(UserUpdateToUser(userUpdate, candidate));
         await _dbContext.SaveChangesAsync();
-        return await _dbContext.Users.FirstAsync(v => v.Email == userUpdate.Email);
+        return await _dbContext.Users.FirstAsync(v => v.Email == accessEmail);
     }
 
     private User UserUpdateToUser(UserUpdate uu, User u)
@@ -37,9 +37,7 @@ public class UsersService : IUsersService
         {
             var value = property.GetValue(uu);
             if (value != null)
-            {
                 typeof(User).GetProperty(property.Name)?.SetValue(u, value);
-            }
         }
 
         return u;

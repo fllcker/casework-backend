@@ -32,6 +32,7 @@ namespace CaseWork.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("update/profile")]
         public async Task<ActionResult<User>> Update([FromBody] UserUpdate userUpdate)
         {
@@ -40,7 +41,8 @@ namespace CaseWork.Controllers
                 if (!ModelState.IsValid)
                     throw new Exception(ModelState.Values.SelectMany(v => v.Errors)
                         .Select(v => v.ErrorMessage).First());
-                return await _usersService.UpdateInfo(userUpdate);
+                return await _usersService.UpdateInfo(userUpdate, 
+                    User.FindFirstValue(ClaimTypes.Email)!);
             }
             catch (Exception e)
             {

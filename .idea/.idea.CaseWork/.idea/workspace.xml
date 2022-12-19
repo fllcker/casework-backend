@@ -6,9 +6,11 @@
     <projectFile profileName="https">CaseWork/CaseWork.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="">
+    <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="test userupdate-to-user method">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/UsersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Models/Dto/UserUpdate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Models/Dto/UserUpdate.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Users/IUsersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Users/IUsersService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Services/Users/UsersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Users/UsersService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +20,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/CaseWork/Controllers/TasksController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Controllers/UsersController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -111,7 +114,7 @@
       <workItem from="1671358474998" duration="5035000" />
       <workItem from="1671375828161" duration="922000" />
       <workItem from="1671382817275" duration="964000" />
-      <workItem from="1671451235194" duration="974000" />
+      <workItem from="1671451235194" duration="2110000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670704652703</created>
@@ -274,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671376381509</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="test userupdate-to-user method">
+      <created>1671452236233</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1671452236233</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,6 +326,7 @@
     <MESSAGE value="some fixes" />
     <MESSAGE value="adding Invite field to Task" />
     <MESSAGE value="some features" />
-    <option name="LAST_COMMIT_MESSAGE" value="some features" />
+    <MESSAGE value="test userupdate-to-user method" />
+    <option name="LAST_COMMIT_MESSAGE" value="test userupdate-to-user method" />
   </component>
 </project>
