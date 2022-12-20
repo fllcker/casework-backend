@@ -50,4 +50,16 @@ public class CompaniesService : ICompaniesService
             .FirstOrDefaultAsync(v => v.Users.Contains(user)) 
             ?? throw new ErrorResponse("Company not found!", HttpStatusCode.NotFound);
     }
+
+    public async Task<bool> RemoveUserFromCompany(int id, string accessEmail)
+    {
+        var company = await _dbContext.Companies
+            .Include(v => v.UserCreator)
+            .FirstOrDefaultAsync(v => v.UserCreator!.Email == accessEmail);
+        if (company == null) 
+            throw new ErrorResponse("Not found company or user dont have access to company");
+        company.Users.RemoveAll(v => v.Id == id);
+        await _dbContext.SaveChangesAsync();
+        return true;
+    }
 }

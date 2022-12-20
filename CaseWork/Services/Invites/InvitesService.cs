@@ -135,9 +135,9 @@ public class InvitesService : IInvitesService
         if (company == null) throw new ErrorResponse("Company not found!", HttpStatusCode.NotFound);
         if (company.Users.Count(v => v.Email == userEmail) != 0)
             throw new Exception("You are already a member of this company");
-        
+
         company.Users.Add(await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == userEmail)
-        ?? throw new ErrorResponse("User not found!", HttpStatusCode.NotFound));
+                          ?? throw new ErrorResponse("User not found!", HttpStatusCode.NotFound));
         await _dbContext.SaveChangesAsync();
         return company;
     }

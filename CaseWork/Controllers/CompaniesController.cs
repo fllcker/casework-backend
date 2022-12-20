@@ -77,5 +77,22 @@ namespace CaseWork.Controllers
                 return BadRequest(e.Message);
             }
         }
+        
+        [HttpGet]
+        [Authorize]
+        [Route("members/remove/{id}")]
+        public async Task<ActionResult> RemoveFromMembers(int id)
+        {
+            try
+            {
+                await _companiesService
+                    .RemoveUserFromCompany(id, User.FindFirstValue(ClaimTypes.Email)!);
+                return NoContent();
+            }
+            catch (ErrorResponse e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
     }
 }
