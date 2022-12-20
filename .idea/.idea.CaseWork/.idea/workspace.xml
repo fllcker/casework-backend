@@ -7,12 +7,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="29b4ec4d-2702-43cf-b534-f6f58525301d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/CaseWork/Exceptions/ErrorResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CaseWork/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/CaseWork.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/CaseWork.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/AuthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/AuthController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/CompaniesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/CompaniesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/InvitesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/InvitesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/RoleRelationsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/RoleRelationsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/TasksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/TasksController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Controllers/UsersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221211075103_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221211075103_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221211075858_2.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221211075858_2.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221211080121_3.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221211080121_3.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221211080733_4.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221211080733_4.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221212151957_5.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221212151957_5.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221213133732_6.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221213133732_6.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221217205828_7.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221217205828_7.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221218121650_8.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221218121650_8.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221219175049_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/20221219175049_Initial.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Migrations/CaseWorkContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Models/Invite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Models/Invite.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Auth/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Auth/AuthService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CaseWork/Services/Companies/CompaniesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Companies/CompaniesService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Companies/ICompaniesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Companies/ICompaniesService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseWork/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Invites/InvitesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Invites/InvitesService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Tasks/TasksService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseWork/Services/Users/UsersService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/CaseWork/Services/Users/UsersService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +48,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Controllers/CompaniesController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/CaseWork/Controllers/TasksController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Models/Dto/UserProfileData.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/jxwid/RiderProjects/CaseWork/CaseWork/Models/Invite.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/CaseWork/Services/Companies/CompaniesService.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -118,7 +146,9 @@
       <workItem from="1671382817275" duration="964000" />
       <workItem from="1671451235194" duration="3077000" />
       <workItem from="1671454367057" duration="3321000" />
-      <workItem from="1671469456580" duration="5095000" />
+      <workItem from="1671469456580" duration="5396000" />
+      <workItem from="1671479504546" duration="107000" />
+      <workItem from="1671539070732" duration="2636000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1670704652703</created>
@@ -302,7 +332,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671472219542</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="getallmembers (companyName -&gt; companyId)">
+      <created>1671479160716</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1671479160716</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,7 +382,8 @@
     <MESSAGE value="some features" />
     <MESSAGE value="test userupdate-to-user method" />
     <MESSAGE value="some fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="some fixes" />
+    <MESSAGE value="getallmembers (companyName -&gt; companyId)" />
+    <option name="LAST_COMMIT_MESSAGE" value="getallmembers (companyName -&gt; companyId)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

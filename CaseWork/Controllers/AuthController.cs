@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
+using CaseWork.Exceptions;
 using CaseWork.Models.Dto;
 using CaseWork.Services;
 using CaseWork.Services.Auth;
@@ -50,15 +52,17 @@ namespace CaseWork.Controllers
             {
                 return await _authService.Login(userLogin);
             }
-            catch (Exception e)
+            catch (ErrorResponse e)
             {
+                if (e.Code == HttpStatusCode.NotFound) return NotFound(e.Message);
+                if (e.Code == HttpStatusCode.Unauthorized) return Unauthorized(e.Message);
                 return BadRequest(e.Message);
             }
         }
 
+        [HttpGet]
         [Authorize]
         [Route("check")]
-        [HttpGet]
         public ActionResult Check()
         {
             var roles = User.Claims

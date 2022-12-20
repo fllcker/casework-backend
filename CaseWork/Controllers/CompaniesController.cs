@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using CaseWork.Exceptions;
 using CaseWork.Models;
 using CaseWork.Services.Companies;
 using Microsoft.AspNetCore.Authorization;
@@ -33,10 +35,10 @@ namespace CaseWork.Controllers
                 var accessEmail = User.FindFirstValue(ClaimTypes.Email)!;
                 return await _companiesService.Create(company, accessEmail);
             }
-            catch (Exception e)
+            catch (ErrorResponse e)
             {
-                Console.WriteLine(e);
-                throw;
+                if (e.Code == HttpStatusCode.NotFound) return NotFound(e.Message);
+                return BadRequest(e.Message);
             }
         }
 
@@ -50,8 +52,10 @@ namespace CaseWork.Controllers
                 return Ok(await _companiesService
                     .GetAllMembers(companyId, User.FindFirstValue(ClaimTypes.Email)!));
             }
-            catch (Exception e)
+            catch (ErrorResponse e)
             {
+                if (e.Code == HttpStatusCode.Unauthorized) return Unauthorized(e.Message);
+                if (e.Code == HttpStatusCode.NotFound) return NotFound(e.Message);
                 return BadRequest(e.Message);
             }
         }
@@ -66,8 +70,10 @@ namespace CaseWork.Controllers
                 return await _companiesService
                     .GetUserCompany(User.FindFirstValue(ClaimTypes.Email)!);
             }
-            catch (Exception e)
+            catch (ErrorResponse e)
             {
+                if (e.Code == HttpStatusCode.Unauthorized) return Unauthorized(e.Message);
+                if (e.Code == HttpStatusCode.NotFound) return NotFound(e.Message);
                 return BadRequest(e.Message);
             }
         }

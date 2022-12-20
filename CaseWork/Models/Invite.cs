@@ -4,7 +4,6 @@ public class Invite
 {
     public int Id { get; set; }
     public InviteType InviteType { get; set; }
-    public string? LinkHash { get; set; }
     public int InviteEntityId { get; set; }
 
     public bool IsAccepted { get; set; } = false;

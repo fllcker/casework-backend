@@ -1,9 +1,12 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
+using System.Net;
 using System.Security.Claims;
 using AutoMapper;
 using CaseWork.Data;
+using CaseWork.Exceptions;
 using CaseWork.Models;
 using CaseWork.Models.Dto;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
@@ -27,11 +30,12 @@ public class AuthService : IAuthService
 
     public async Task<string> Login(UserLogin userLogin)
     {
-        var candidate = await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == userLogin.Email);
-        if (candidate == null) throw new Exception("User not found!");
+        var candidate = await _dbContext.Users.SingleOrDefaultAsync(v => v.Email == userLogin.Email);
+        if (candidate == null) 
+            throw new ErrorResponse("User not found!", HttpStatusCode.NotFound);
         if (!BCrypt.Net.BCrypt.Verify(userLogin.Password, candidate.Password))
-            throw new Exception("Wrong data!");
-        
+            throw new ErrorResponse("Wrong data!", HttpStatusCode.Unauthorized);
+
         return await GenerateToken(candidate);
     }
 

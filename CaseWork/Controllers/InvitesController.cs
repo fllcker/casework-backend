@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
+using CaseWork.Exceptions;
 using CaseWork.Models;
 using CaseWork.Models.Dto;
 using CaseWork.Services.Invites;
@@ -37,8 +39,9 @@ namespace CaseWork.Controllers
                 var email = User.FindFirstValue(ClaimTypes.Email)!;
                 return await _invitesService.Create(email, targetEmail, inviteCreate);
             }
-            catch (Exception e)
+            catch (ErrorResponse e)
             {
+                if (e.Code == HttpStatusCode.NotFound) return NotFound(e.Message);
                 return BadRequest(e.Message);
             }
         }
@@ -53,8 +56,10 @@ namespace CaseWork.Controllers
                 var email = User.FindFirstValue(ClaimTypes.Email)!;
                 return await _invitesService.DenyInvite(id, email);
             }
-            catch (Exception e)
+            catch (ErrorResponse e)
             {
+                if (e.Code == HttpStatusCode.NotFound) return NotFound(e.Message);
+                if (e.Code == HttpStatusCode.Unauthorized) return Unauthorized(e.Message);
                 return BadRequest(e.Message);
             }
         }
@@ -69,8 +74,10 @@ namespace CaseWork.Controllers
                 var email = User.FindFirstValue(ClaimTypes.Email)!;
                 return await _invitesService.AcceptInvite(id, email);
             }
-            catch (Exception e)
+            catch (ErrorResponse e)
             {
+                if (e.Code == HttpStatusCode.NotFound) return NotFound(e.Message);
+                if (e.Code == HttpStatusCode.Unauthorized) return Unauthorized(e.Message);
                 return BadRequest(e.Message);
             }
         }
@@ -93,8 +100,9 @@ namespace CaseWork.Controllers
             {
                 return await _invitesService.GetInviteByTask(taskId);
             }
-            catch (Exception e)
+            catch (ErrorResponse e)
             {
+                if (e.Code == HttpStatusCode.NotFound) return NotFound(e.Message);
                 return BadRequest(e.Message);
             }
         }

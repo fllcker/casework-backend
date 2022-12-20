@@ -20,13 +20,11 @@ namespace CaseWork.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly CaseWorkContext _context;
         private readonly IUsersService _usersService;
         private readonly IMapper _mapper;
 
-        public UsersController(CaseWorkContext context, IUsersService usersService, IMapper mapper)
+        public UsersController(IUsersService usersService, IMapper mapper)
         {
-            _context = context;
             _usersService = usersService;
             _mapper = mapper;
         }
@@ -55,9 +53,9 @@ namespace CaseWork.Controllers
         [Authorize]
         public async Task<ActionResult<UserProfileData>> GetProfileData()
         {
-            var email = User.FindFirstValue(ClaimTypes.Email);
-            var user = await _context.Users.SingleOrDefaultAsync(v => v.Email == email);
-            if (user == null) return BadRequest("User not found!");
+            var email = User.FindFirstValue(ClaimTypes.Email)!;
+            var user = await _usersService.GetByEmail(email);
+            if (user == null) return NotFound();
             return _mapper.Map<UserProfileData>(user);
         }
     }

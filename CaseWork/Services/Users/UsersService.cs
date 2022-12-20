@@ -4,6 +4,7 @@ using CaseWork.Data;
 using CaseWork.Models;
 using CaseWork.Models.Dto;
 using Microsoft.EntityFrameworkCore;
+using Task = System.Threading.Tasks.Task;
 
 namespace CaseWork.Services.Users;
 
@@ -44,5 +45,7 @@ public class UsersService : IUsersService
     }
 
     public async Task<User?> GetByEmail(string email)
-        => await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == email);
+        => await _dbContext.Users.SingleOrDefaultAsync(v => v.Email == email);
+    
+
 }

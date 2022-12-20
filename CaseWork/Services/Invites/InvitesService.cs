@@ -1,5 +1,7 @@
-﻿using AutoMapper;
+﻿using System.Net;
+using AutoMapper;
 using CaseWork.Data;
+using CaseWork.Exceptions;
 using CaseWork.Models;
 using CaseWork.Models.Dto;
 using CaseWork.Services.Tasks;
@@ -29,7 +31,8 @@ public class InvitesService : IInvitesService
     {
         var user = await _usersService.GetByEmail(initEmail);
         var target = await _usersService.GetByEmail(targetEmail);
-        if (user == null || target == null) throw new Exception("Error");
+        if (user == null || target == null) 
+            throw new ErrorResponse("Not found user or company", HttpStatusCode.NotFound);
         Invite invite = _mapper.Map<Invite>(inviteCreate);
         invite.Initiator = user;
         invite.Target = target;
@@ -47,9 +50,14 @@ public class InvitesService : IInvitesService
         var invite = await _dbContext.Invites
             .Include(v => v.Target)
             .FirstOrDefaultAsync(v => v.Id == inviteId);
-        if (invite == null) throw new Exception("Invite not found!");
-        if (invite.IsDenied) throw new Exception("Invite already denied");
-        if (invite.Target.Email != userEmail) throw new Exception("This invite is not for you");
+        
+        if (invite == null) 
+            throw new ErrorResponse("Invite not found!", HttpStatusCode.NotFound);
+        if (invite.IsDenied) 
+            throw new ErrorResponse("Invite already denied", HttpStatusCode.BadRequest);
+        if (invite.Target.Email != userEmail) 
+            throw new ErrorResponse("This invite is not for you", HttpStatusCode.Unauthorized);
+        
         invite.IsDenied = true;
         await _dbContext.SaveChangesAsync();
         return invite;
@@ -60,9 +68,14 @@ public class InvitesService : IInvitesService
         var invite = await _dbContext.Invites
             .Include(v => v.Target)
             .FirstOrDefaultAsync(v => v.Id == inviteId);
-        if (invite == null) throw new Exception("Invite not found!");
-        if (invite.IsAccepted) throw new Exception("Invite already accepted");
-        if (invite.Target.Email != userEmail) throw new Exception("This invite is not for you");
+        
+        if (invite == null) 
+            throw new ErrorResponse("Invite not found!", HttpStatusCode.NotFound);
+        if (invite.IsAccepted) 
+            throw new ErrorResponse("Invite already accepted", HttpStatusCode.BadRequest);
+        if (invite.Target.Email != userEmail) 
+            throw new ErrorResponse("This invite is not for you", HttpStatusCode.Unauthorized);
+        
         invite.IsAccepted = true;
         await _dbContext.SaveChangesAsync();
 
@@ -94,20 +107,21 @@ public class InvitesService : IInvitesService
         var task = await _dbContext.Tasks
             .Include(v => v.Executor)
             .FirstOrDefaultAsync(v => v.Id == taskId);
-        if (task == null) throw new Exception("Task not found!");
+        if (task == null) throw new ErrorResponse("Task not found!", HttpStatusCode.NotFound);
         
         return await _dbContext.Invites
             .Include(v => v.Target)
             .Where(v => v.InviteEntityId == task.Id)
             .Where(v => v.Target.Id == task.Executor.Id)
-            .FirstOrDefaultAsync() ?? throw new Exception("Invite not found!");
+            .FirstOrDefaultAsync() 
+               ?? throw new ErrorResponse("Invite not found!", HttpStatusCode.NotFound);
     }
     
     private async Task<Models.Task> AcceptToTask(Invite invite, string userEmail)
     {
         var task = await _dbContext.Tasks.FirstOrDefaultAsync(v => v.Id == invite.InviteEntityId);
-        if (task == null) throw new Exception("Task not found!");
-        if (task.Executor.Email != userEmail) throw new Exception("Invite error!");
+        if (task == null) throw new ErrorResponse("Task not found!", HttpStatusCode.NotFound);
+        if (task.Executor.Email != userEmail) throw new ErrorResponse("Invite error!");
         task.AcceptedTime = ((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds();
         await _dbContext.SaveChangesAsync();
         return task;
@@ -118,12 +132,12 @@ public class InvitesService : IInvitesService
         var company = await _dbContext.Companies
             .Include(v => v.Users)
             .FirstOrDefaultAsync(v => v.Id == invite.InviteEntityId);
-        if (company == null) throw new Exception("Company not found!");
+        if (company == null) throw new ErrorResponse("Company not found!", HttpStatusCode.NotFound);
         if (company.Users.Count(v => v.Email == userEmail) != 0)
             throw new Exception("You are already a member of this company");
         
         company.Users.Add(await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == userEmail)
-        ?? throw new Exception("User not found!"));
+        ?? throw new ErrorResponse("User not found!", HttpStatusCode.NotFound));
         await _dbContext.SaveChangesAsync();
         return company;
     }

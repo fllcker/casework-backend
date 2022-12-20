@@ -1,4 +1,6 @@
-﻿using CaseWork.Data;
+﻿using System.Net;
+using CaseWork.Data;
+using CaseWork.Exceptions;
 using CaseWork.Models;
 using Microsoft.EntityFrameworkCore;
 using Task = System.Threading.Tasks.Task;
@@ -16,11 +18,8 @@ public class CompaniesService : ICompaniesService
 
     public async Task<Company> Create(Company company, string accessEmail)
     {
-        // if (await _dbContext.Companies.CountAsync(v => v.Name == company.Name) != 0)
-        //     throw new Exception("Company name is busy!");
-        
-        var creator = await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == accessEmail) ??
-                      throw new Exception("Company owner not found!");
+        var creator = await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == accessEmail) 
+                      ?? throw new ErrorResponse("Company owner not found!", HttpStatusCode.NotFound);
 
         company.UserCreator = creator;
         company.Users.Add(creator);
@@ -35,18 +34,20 @@ public class CompaniesService : ICompaniesService
                 .Include(v => v.Users)
                 .SingleOrDefaultAsync(v => v.Id == companyId);
         
-        if (company == null) throw new Exception("Company not found!");
+        if (company == null) 
+            throw new ErrorResponse("Company not found!", HttpStatusCode.NotFound);
         if (company.Users.Count(v => v.Email == accessEmail) == 0)
-            throw new Exception("Access denied!");
+            throw new ErrorResponse("Access denied!", HttpStatusCode.Unauthorized);
         return company.Users.ToList();
     }
 
     public async Task<Company> GetUserCompany(string accessEmail)
     {
         var user = await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == accessEmail);
-        if (user == null) throw new Exception("User not found!");
+        if (user == null) 
+            throw new ErrorResponse("User not found!", HttpStatusCode.NotFound);
         return await _dbContext.Companies
             .FirstOrDefaultAsync(v => v.Users.Contains(user)) 
-            ?? throw new Exception("Company not found!");
+            ?? throw new ErrorResponse("Company not found!", HttpStatusCode.NotFound);
     }
 }

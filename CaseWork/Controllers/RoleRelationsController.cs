@@ -27,8 +27,8 @@ namespace CaseWork.Controllers
         [Route("set/{email}/{roleName}")]
         public async Task<ActionResult<RoleRelation>> SetRole(string email, string roleName)
         {
-            var candidate = await _dbContext.Users.FirstOrDefaultAsync(v => v.Email == email);
-            if (candidate == null) return BadRequest("User not found");
+            var candidate = await _dbContext.Users.SingleOrDefaultAsync(v => v.Email == email);
+            if (candidate == null) return NotFound("User not found");
             Role? role = await _dbContext.Roles.FirstOrDefaultAsync(v => v.Title == roleName);
             if (role == null)
             {
@@ -65,7 +65,7 @@ namespace CaseWork.Controllers
                     .Where(v => v.Role.Title == roleName)
                     .ToListAsync();
                 _dbContext.RemoveRange(roles);
-                return Ok();
+                return NoContent();
             }
             catch (Exception e)
             {

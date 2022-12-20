@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
 using CaseWork.Data;
+using CaseWork.Exceptions;
 using CaseWork.Models;
 using CaseWork.Models.Dto;
 using CaseWork.Services.Invites;
@@ -40,39 +42,13 @@ namespace CaseWork.Controllers
                 var userEmail = User.FindFirstValue(ClaimTypes.Email)!;
                 return await _tasksService.GetByIdWithVerifies(id, userEmail);
             }
-            catch (Exception e)
+            catch (ErrorResponse e)
             {
+                if (e.Code == HttpStatusCode.Unauthorized) return Unauthorized(e.Message);
+                if (e.Code == HttpStatusCode.NotFound) return NotFound();
                 return BadRequest(e.Message);
             }
         }
-        
-        // [HttpGet]
-        // [Authorize]
-        // [Route("get/incompleted/executor")]
-        // public async Task<IEnumerable<Models.Task>> GetInCompletedTasks()
-        //     => await _tasksService
-        //         .GetInCompletedTasks(User.FindFirstValue(ClaimTypes.Email)!);
-        //
-        // [HttpGet]
-        // [Authorize]
-        // [Route("get/incompleted/employer")]
-        // public async Task<IEnumerable<Models.Task>> GetInCompletedTasksByEmployer()
-        //     => await _tasksService
-        //         .GetInCompletedTasksByEmployer(User.FindFirstValue(ClaimTypes.Email)!);
-        //
-        // [HttpGet]
-        // [Authorize]
-        // [Route("get/all/executor")]
-        // public async Task<IEnumerable<Models.Task>> GetAllTasksByExecutor()
-        //     => await _tasksService
-        //         .GetAllTasks(User.FindFirstValue(ClaimTypes.Email)!, GetBy.Executor);
-        //
-        // [HttpGet]
-        // [Authorize]
-        // [Route("get/all/employer")]
-        // public async Task<IEnumerable<Models.Task>> GetAllTasksByEmployer()
-        //     => await _tasksService
-        //         .GetAllTasks(User.FindFirstValue(ClaimTypes.Email)!, GetBy.Employer);
 
         [HttpGet]
         [HttpPost]
@@ -107,8 +83,9 @@ namespace CaseWork.Controllers
                 var email = User.FindFirstValue(ClaimTypes.Email)!;
                 return await _tasksService.ToComplete(email, id);
             }
-            catch (Exception e)
+            catch (ErrorResponse e)
             {
+                if (e.Code == HttpStatusCode.NotFound) return NotFound(e.Message);
                 return BadRequest(e.Message);
             }
         }
@@ -123,7 +100,7 @@ namespace CaseWork.Controllers
             inviteTo ??= userCreator.Email;
             
             var invitedUser = await _usersService.GetByEmail(inviteTo);
-            if (invitedUser == null) return BadRequest("User not found!");
+            if (invitedUser == null) return NotFound("User not found!");
             
             return await _tasksService.Create(taskCreate, userCreator, invitedUser);
         }
