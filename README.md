@@ -1,6 +1,6 @@
 <h1 align="center">CaseWork</h1>
 
-Task manager, an interesting feature of which is the ability to work in the company. For example, one employee of the company can add tasks to another and view his progress. (This repo is backend)
+Task manager, an interesting feature of which is the ability to work in the company. For example, one employee of the company can add tasks to another and view his progress. (This repo is backend, i suggest you look at the [frontend winui3 application](https://github.com/nnveter/casework) written with this backend)
 
 # Technologies
 - .NET 7
